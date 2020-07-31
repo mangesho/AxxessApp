@@ -1,5 +1,6 @@
 package com.axxess.myapplication.network
 
+import com.axxess.myapplication.model.SearchModel
 import com.google.gson.annotations.SerializedName
 
 
@@ -31,3 +32,21 @@ data class NetworkImages(
     val id: String? = "",
     val coverHeight: Int = 0,
     val title: String? = "")
+
+
+
+
+/**
+ * Convert Network results to database objects
+ */
+fun List<NetworkImages>.asDataModel(): List<SearchModel> {
+    return map {
+        SearchModel(
+            id = it.id,
+            cover = it.cover,
+            title = it.title,
+            coverHeight = it.coverHeight,
+            coverWidth = it.coverWidth
+        )
+    }
+}
