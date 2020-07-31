@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="searchModel"
+            type="com.axxess.myapplication.model.SearchModel" />
+
+        <variable
+            name="imageCallBack"
+            type="com.axxess.myapplication.ui.ImageClick" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp8">
+
+        <ImageView
+            android:id="@+id/imgvSearch"
+            android:layout_width="@dimen/dp120"
+            android:layout_height="@dimen/dp120"
+            android:contentDescription="@string/content_description__image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:onClick="@{() -> imageCallBack.onClick(searchModel)}"
+            app:searchImage='@{searchModel.cover != null ? searchModel.cover : ""}'
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

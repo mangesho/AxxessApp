@@ -27,6 +27,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+
+        dataBinding = true
+
+        // for view binding:
+        // viewBinding = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -66,6 +74,8 @@ dependencies {
 
     // glide for images
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.wear:wear:1.0.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     // library for dealing with time

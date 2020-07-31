@@ -1,5 +1,6 @@
 package com.axxess.myapplication.network
 
+import androidx.room.PrimaryKey
 import com.axxess.myapplication.model.SearchModel
 import com.google.gson.annotations.SerializedName
 
@@ -27,13 +28,15 @@ data class NetworkImageContainer(val data: List<NetworkImages>, val success: Boo
 
 
 data class NetworkImages(
-    val cover: String? = "",
-    val coverWidth: Int = 0,
     val id: String? = "",
-    val coverHeight: Int = 0,
-    val title: String? = "")
+    val title: String? = "",
+    val description : String? = "",
+    var images :  List<ImageList> = emptyList()
+)
 
-
+data class ImageList(
+    var link : String
+)
 
 
 /**
@@ -43,10 +46,8 @@ fun List<NetworkImages>.asDataModel(): List<SearchModel> {
     return map {
         SearchModel(
             id = it.id,
-            cover = it.cover,
-            title = it.title,
-            coverHeight = it.coverHeight,
-            coverWidth = it.coverWidth
+            cover = if(it.images.isNullOrEmpty()) null else it.images[0].link,
+            title = it.title
         )
     }
 }

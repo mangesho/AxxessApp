@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class CommentEntity constructor(
     @PrimaryKey
-    var id: String,
-    var Comment: String)
+    val id: String,
+    val Comment: String = "")
 

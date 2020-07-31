@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [CommentEntity::class], version = DatabaseConstants.version)
+@Database(entities = [CommentEntity::class], version = DatabaseConstants.version, exportSchema = false)
 abstract class CommentDatabase: RoomDatabase() {
     abstract val searchDao: SearchDao
 }

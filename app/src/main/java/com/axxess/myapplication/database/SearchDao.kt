@@ -8,6 +8,6 @@ interface SearchDao {
     @Query("select * from commententity WHERE id = :id")
     fun getComment(id: String): LiveData<CommentEntity>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert( commentEntity: CommentEntity)
 }
